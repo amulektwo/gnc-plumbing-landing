@@ -1,0 +1,1137 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Free Plumbing Estimate Follow-Up Map | GetNewCustomers</title>
+  <meta name="description" content="A one-page map kept by the dispatch desk so every open plumbing estimate has a named owner, a due date, and a logged outcome. Free from GetNewCustomers.com, Hummelstown, PA." />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23122733'/%3E%3Cpath d='M9 11h14v10H9z' fill='none' stroke='%23F7F4EC' stroke-width='2.2'/%3E%3Ccircle cx='16' cy='16' r='3' fill='%23C86032'/%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Martian+Mono:wght@400;500;600&family=Schibsted+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --paper: oklch(96.8% 0.010 84);
+      --paper-deep: oklch(92.8% 0.014 82);
+      --sheet: oklch(99% 0.005 85);
+      --slate: oklch(23.5% 0.038 228);
+      --slate-dark: oklch(18% 0.032 228);
+      --ink: oklch(20% 0.022 228);
+      --ink-mid: oklch(40% 0.020 226);
+      --ink-soft: oklch(54% 0.016 224);
+
+      --copper: oklch(57% 0.148 40);
+      --copper-dark: oklch(48% 0.142 40);
+      --copper-tint: oklch(94.5% 0.030 44);
+      --brass: oklch(78% 0.125 78);
+      --pine: oklch(44% 0.105 154);
+      --pine-tint: oklch(93.5% 0.030 154);
+
+      --rule: oklch(24% 0.025 228 / 0.15);
+      --rule-strong: oklch(24% 0.025 228 / 0.30);
+      --rule-light: oklch(96% 0.01 84 / 0.18);
+      --ease: cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: 'Schibsted Grotesk', system-ui, -apple-system, sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      background: var(--paper);
+      color: var(--ink);
+      font-size: 17px;
+      line-height: 1.6;
+      min-height: 100dvh;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3 {
+      font-family: 'Bricolage Grotesque', system-ui, sans-serif;
+      letter-spacing: -0.028em;
+      line-height: 1.06;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    :focus-visible {
+      outline: 3px solid var(--copper);
+      outline-offset: 3px;
+    }
+
+    .hero :focus-visible,
+    .request-band :focus-visible,
+    .top-bar :focus-visible {
+      outline-color: var(--brass);
+    }
+
+    .wrap {
+      width: 100%;
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 0 clamp(1.1rem, 3.5vw, 2.5rem);
+    }
+
+    /* ======================================================================
+       TOP BAR
+       ====================================================================== */
+    .top-bar {
+      background: var(--slate);
+      color: var(--paper);
+      border-bottom: 1px solid var(--rule-light);
+    }
+
+    .top-bar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      min-height: 68px;
+      padding: 0.75rem 0;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.65rem;
+      text-decoration: none;
+      font-family: 'Bricolage Grotesque', sans-serif;
+      font-size: 1.15rem;
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      color: var(--sheet);
+      white-space: nowrap;
+    }
+
+    .brand-mark {
+      width: 30px;
+      height: 30px;
+      flex-shrink: 0;
+    }
+
+    .top-right {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .region-tag {
+      font-family: 'Martian Mono', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: oklch(84% 0.02 84);
+      white-space: nowrap;
+    }
+
+    .top-cta {
+      font-family: 'Martian Mono', monospace;
+      font-size: 0.74rem;
+      font-weight: 600;
+      text-decoration: none;
+      padding: 0.48rem 0.85rem;
+      border-radius: 5px;
+      background: oklch(96% 0.01 84 / 0.12);
+      border: 1px solid oklch(96% 0.01 84 / 0.32);
+      color: var(--sheet);
+      white-space: nowrap;
+      transition: background-color 160ms var(--ease), border-color 160ms var(--ease);
+    }
+
+    .top-cta:hover {
+      background: oklch(96% 0.01 84 / 0.22);
+      border-color: var(--brass);
+    }
+
+    /* ======================================================================
+       HERO: DEEP BLUEPRINT SLATE + TACTILE FOLLOW-UP MAP SPECIMEN
+       ====================================================================== */
+    .hero {
+      background: var(--slate);
+      color: var(--paper);
+      border-bottom: 2px solid var(--ink);
+      padding: clamp(3rem, 6.5vw, 5.25rem) 0 clamp(3.5rem, 7vw, 5.75rem);
+      position: relative;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.08;
+      background-image:
+        linear-gradient(to right, var(--paper) 1px, transparent 1px),
+        linear-gradient(to bottom, var(--paper) 1px, transparent 1px);
+      background-size: 40px 40px;
+    }
+
+    .hero-grid {
+      position: relative;
+      display: grid;
+      grid-template-columns: minmax(0, 1.12fr) minmax(0, 0.92fr);
+      gap: clamp(2rem, 5vw, 4.25rem);
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.65rem;
+      font-family: 'Martian Mono', monospace;
+      font-size: 0.73rem;
+      font-weight: 500;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      color: var(--brass);
+      margin-bottom: 1.25rem;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 24px;
+      height: 2px;
+      background: var(--copper);
+      flex-shrink: 0;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.45rem, 5vw, 4.25rem);
+      font-weight: 800;
+      color: var(--sheet);
+      max-width: 13.5ch;
+      margin-bottom: 1.35rem;
+    }
+
+    .hero-lead {
+      font-size: 1.08rem;
+      line-height: 1.65;
+      color: oklch(88% 0.014 84);
+      max-width: 52ch;
+      margin-bottom: 2rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .btn-copper {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.7rem;
+      padding: 0.9rem 1.45rem;
+      border-radius: 6px;
+      background: var(--copper);
+      color: var(--sheet);
+      border: 1.5px solid var(--slate-dark);
+      box-shadow: 4px 4px 0 var(--slate-dark);
+      font-family: 'Schibsted Grotesk', sans-serif;
+      font-size: 0.98rem;
+      font-weight: 700;
+      text-decoration: none;
+      cursor: pointer;
+      transition: transform 140ms var(--ease), box-shadow 140ms var(--ease), background-color 150ms var(--ease);
+    }
+
+    .btn-copper:hover {
+      background: var(--copper-dark);
+      transform: translate(-1px, -1px);
+      box-shadow: 5px 5px 0 var(--slate-dark);
+    }
+
+    .btn-copper:active {
+      transform: translate(2px, 2px);
+      box-shadow: 1px 1px 0 var(--slate-dark);
+    }
+
+    .btn-copper:disabled {
+      opacity: 0.65;
+      cursor: wait;
+      transform: none;
+    }
+
+    .hero-meta {
+      font-family: 'Martian Mono', monospace;
+      font-size: 0.72rem;
+      color: oklch(80% 0.016 84);
+    }
+
+    /* Tactile Plumbing Estimate Map Specimen */
+    .specimen {
+      position: relative;
+      background: var(--sheet);
+      color: var(--ink);
+      border: 2px solid var(--ink);
+      border-top: 6px solid var(--copper);
+      border-radius: 6px;
+      padding: 1.5rem 1.45rem 1.4rem;
+      box-shadow: 9px 9px 0 var(--slate-dark);
+      transform: rotate(1deg);
+      transition: transform 280ms var(--ease);
+    }
+
+    .specimen:hover {
+      transform: rotate(0deg);
+    }
+
+    .specimen-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 0.75rem;
+      padding-bottom: 0.9rem;
+      border-bottom: 2px solid var(--ink);
+      margin-bottom: 0.85rem;
+    }
+
+    .specimen-kicker {
+      display: block;
+      font-family: 'Martian Mono', monospace;
+      font-size: 0.66rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--copper-dark);
+      margin-bottom: 0.25rem;
+    }
+
+    .specimen-title {
+      font-family: 'Bricolage Grotesque', sans-serif;
+      font-size: 1.28rem;
+      font-weight: 800;
+      line-height: 1.1;
+    }
+
+    .specimen-stamp {
+      font-family: 'Martian Mono', monospace;
+      font-size: 0.66rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      padding: 0.24rem 0.5rem;
+      border: 1.5px solid var(--slate);
+      color: var(--slate);
+      border-radius: 4px;
+      white-space: nowrap;
+    }
+
+    .specimen-note {
+      font-size: 0.82rem;
+      color: var(--ink-mid);
+      margin-bottom: 0.95rem;
+    }
+
+    .spec-table {
+      border: 1.5px solid var(--ink);
+      border-radius: 4px;
+      overflow: hidden;
+      background: var(--paper);
+    }
+
+    .spec-row {
+      display: grid;
+      grid-template-columns: 0.88fr 1.35fr;
+      border-bottom: 1px solid var(--rule-strong);
+      font-size: 0.84rem;
+    }
+
+    .spec-row:last-child {
+      border-bottom: none;
+    }
+
+    .spec-row span {
+      padding: 0.58rem 0.75rem;
+    }
+
+    .spec-row span:first-child {
+      font-family: 'Martian Mono', monospace;
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: var(--ink-mid);
+      background: var(--paper-deep);
+      border-right: 1px solid var(--rule-strong);
+      display: flex;
+      align-items: center;
+    }
+
+    .spec-row span:last-child {
+      font-weight: 600;
+      color: var(--ink);
+    }
+
+    .spec-row.blank-row span:last-child {
+      font-family: 'Martian Mono', monospace;
+      font-size: 0.72rem;
+      font-weight: 400;
+      color: var(--ink-soft);
+      font-style: italic;
+    }
+
+    .specimen-foot {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.75rem;
+      margin-top: 0.9rem;
+      font-family: 'Martian Mono', monospace;
+      font-size: 0.66rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+    }
+
+    /* ======================================================================
+       4-COLUMN SPEC STRIP
+       ====================================================================== */
+    .spec-strip {
+      background: var(--paper-deep);
+      border-bottom: 1.5px solid var(--rule-strong);
+    }
+
+    .spec-strip-inner {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1rem;
+      padding: 1.2rem 0;
+    }
+
+    .spec-item {
+      display: flex;
+      align-items: baseline;
+      gap: 0.55rem;
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--ink);
+    }
+
+    .spec-num {
+      font-family: 'Martian Mono', monospace;
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: var(--copper-dark);
+    }
+
+    /* ======================================================================
+       EDITORIAL CONTENT ROWS (Matches GNC Electrician Disciplined Rhythm)
+       ====================================================================== */
+    .content-band {
+      padding: 1.25rem 0 2.5rem;
+    }
+
+    .editorial-row {
+      display: grid;
+      grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.55fr);
+      gap: clamp(1.5rem, 4.5vw, 4rem);
+      padding: clamp(2.4rem, 4.5vw, 3.6rem) 0;
+      border-bottom: 1px solid var(--rule-strong);
+      align-items: start;
+    }
+
+    .row-kicker {
+      display: block;
+      font-family: 'Martian Mono', monospace;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      color: var(--copper-dark);
+      margin-bottom: 0.45rem;
+    }
+
+    .editorial-row h2 {
+      font-size: clamp(1.7rem, 2.8vw, 2.35rem);
+      font-weight: 800;
+      color: var(--ink);
+    }
+
+    .row-body p {
+      color: var(--ink-mid);
+      max-width: 60ch;
+    }
+
+    .row-body p + p {
+      margin-top: 0.95rem;
+    }
+
+    .row-body strong {
+      color: var(--ink);
+    }
+
+    .callout-list {
+      list-style: none;
+      margin: 1.25rem 0;
+      padding: 1.2rem 1.35rem;
+      background: var(--sheet);
+      border: 1.5px solid var(--rule-strong);
+      border-left: 4px solid var(--copper);
+      border-radius: 6px;
+      display: grid;
+      gap: 0.65rem;
+    }
+
+    .callout-list li {
+      display: flex;
+      align-items: baseline;
+      gap: 0.65rem;
+      font-size: 0.98rem;
+      font-weight: 600;
+      color: var(--ink);
+    }
+
+    .callout-list li::before {
+      content: "▪";
+      color: var(--copper);
+      font-size: 0.95rem;
+      flex-shrink: 0;
+    }
+
+    .steps-list {
+      list-style: none;
+      counter-reset: step;
+      display: grid;
+      gap: 1.1rem;
+    }
+
+    .steps-list li {
+      counter-increment: step;
+      display: grid;
+      grid-template-columns: 36px minmax(0, 1fr);
+      gap: 0.9rem;
+      align-items: start;
+      color: var(--ink-mid);
+    }
+
+    .steps-list li::before {
+      content: "0" counter(step);
+      font-family: 'Martian Mono', monospace;
+      font-size: 0.76rem;
+      font-weight: 600;
+      color: var(--sheet);
+      background: var(--slate);
+      width: 36px;
+      height: 28px;
+      border-radius: 4px;
+      display: grid;
+      place-items: center;
+      margin-top: 2px;
+    }
+
+    .faq-list {
+      border-top: 1px solid var(--rule-strong);
+    }
+
+    .faq-list details {
+      border-bottom: 1px solid var(--rule-strong);
+    }
+
+    .faq-list summary {
+      list-style: none;
+      padding: 1.05rem 0;
+      font-weight: 700;
+      color: var(--ink);
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .faq-list summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .faq-list summary::after {
+      content: "+";
+      font-family: 'Martian Mono', monospace;
+      font-size: 1.1rem;
+      color: var(--copper-dark);
+      flex-shrink: 0;
+    }
+
+    .faq-list details[open] summary::after {
+      content: "−";
+    }
+
+    .faq-list details p {
+      padding-bottom: 1.15rem;
+      font-size: 0.97rem;
+      color: var(--ink-mid);
+    }
+
+    /* ======================================================================
+       REQUEST BAND (LIVE FORMSPREE-BACKED LEAD FORM)
+       ====================================================================== */
+    .request-wrap {
+      padding: 2.25rem 0 4rem;
+    }
+
+    .request-band {
+      background: var(--slate);
+      color: var(--paper);
+      border: 2px solid var(--ink);
+      border-radius: 10px;
+      padding: clamp(1.75rem, 4.5vw, 3.5rem);
+      box-shadow: 8px 8px 0 var(--rule);
+    }
+
+    .request-head {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 1.5rem 3rem;
+      align-items: end;
+      margin-bottom: 2rem;
+    }
+
+    .request-band h2 {
+      font-size: clamp(1.9rem, 3.5vw, 2.75rem);
+      font-weight: 800;
+      color: var(--sheet);
+    }
+
+    .request-sub {
+      color: oklch(86% 0.014 84);
+      font-size: 0.98rem;
+      max-width: 48ch;
+    }
+
+    .fields {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.1rem 1.25rem;
+      margin-bottom: 1.35rem;
+    }
+
+    .field label {
+      display: block;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--sheet);
+      margin-bottom: 0.4rem;
+    }
+
+    .field input {
+      width: 100%;
+      padding: 0.78rem 0.9rem;
+      border-radius: 5px;
+      border: 1.5px solid oklch(88% 0.015 84 / 0.35);
+      background: var(--sheet);
+      color: var(--ink);
+      font: inherit;
+      font-size: 0.96rem;
+      transition: border-color 150ms var(--ease);
+    }
+
+    .field input:focus {
+      outline: none;
+      border-color: var(--brass);
+    }
+
+    .field input[aria-invalid="true"] {
+      border-color: var(--copper);
+      background: var(--copper-tint);
+    }
+
+    .field-error {
+      display: block;
+      min-height: 1.1rem;
+      margin-top: 0.3rem;
+      font-family: 'Martian Mono', monospace;
+      font-size: 0.72rem;
+      color: var(--brass);
+    }
+
+    .hp-field {
+      position: absolute;
+      left: -10000px;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+    }
+
+    .form-footer {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 1.1rem 1.5rem;
+      margin-top: 0.5rem;
+    }
+
+    .form-note {
+      font-size: 0.86rem;
+      color: oklch(82% 0.015 84);
+    }
+
+    .send-error {
+      margin-bottom: 0.9rem;
+      font-family: 'Martian Mono', monospace;
+      font-size: 0.8rem;
+      color: var(--brass);
+      min-height: 1.15rem;
+    }
+
+    .confirmation-box {
+      background: var(--pine-tint);
+      color: var(--ink);
+      border: 2px solid var(--pine);
+      border-radius: 8px;
+      padding: 1.5rem 1.65rem;
+    }
+
+    .confirmation-box strong {
+      display: block;
+      font-family: 'Bricolage Grotesque', sans-serif;
+      font-size: 1.35rem;
+      color: var(--slate-dark);
+      margin-bottom: 0.45rem;
+    }
+
+    .confirmation-box p {
+      font-size: 0.96rem;
+      color: var(--ink-mid);
+    }
+
+    .receipt-code {
+      display: inline-block;
+      margin-top: 0.8rem;
+      font-family: 'Martian Mono', monospace;
+      font-size: 0.75rem;
+      padding: 0.3rem 0.6rem;
+      border-radius: 4px;
+      background: var(--sheet);
+      border: 1px solid var(--rule-strong);
+      color: var(--ink);
+    }
+
+    /* ======================================================================
+       FOOTER
+       ====================================================================== */
+    .site-footer {
+      border-top: 1px solid var(--rule-strong);
+      background: var(--paper-deep);
+      padding: 1.75rem 0 2.4rem;
+      font-size: 0.88rem;
+      color: var(--ink-mid);
+    }
+
+    .footer-inner {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.75rem 1.5rem;
+    }
+
+    .footer-inner strong {
+      font-family: 'Bricolage Grotesque', sans-serif;
+      color: var(--ink);
+      font-size: 1rem;
+    }
+
+    .footer-meta {
+      font-family: 'Martian Mono', monospace;
+      font-size: 0.74rem;
+    }
+
+    /* ======================================================================
+       RESPONSIVE (IPAD 820px & MOBILE 390px)
+       ====================================================================== */
+    @media (max-width: 900px) {
+      .hero-grid,
+      .editorial-row,
+      .request-head {
+        grid-template-columns: 1fr;
+      }
+
+      .specimen {
+        transform: none;
+        box-shadow: 6px 6px 0 var(--slate-dark);
+      }
+
+      .spec-strip-inner {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 640px) {
+      .region-tag {
+        display: none;
+      }
+
+      .fields {
+        grid-template-columns: 1fr;
+      }
+
+      .spec-strip-inner {
+        grid-template-columns: 1fr;
+        gap: 0.65rem;
+      }
+
+      .spec-row {
+        grid-template-columns: 1fr;
+      }
+
+      .spec-row span:first-child {
+        border-right: none;
+        border-bottom: 1px solid var(--rule);
+        padding-bottom: 0.3rem;
+      }
+
+      .request-band .btn-copper {
+        width: 100%;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+      *, *::before, *::after {
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="top-bar">
+    <div class="wrap top-bar-inner">
+      <a class="brand" href="#top">
+        <svg class="brand-mark" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+          <rect width="32" height="32" rx="6" fill="#C86032" />
+          <path d="M8 16h16M16 8v16" stroke="#122733" stroke-width="2.6" stroke-linecap="round" />
+          <circle cx="16" cy="16" r="4.2" fill="#F7F4EC" stroke="#122733" stroke-width="2" />
+        </svg>
+        <span>GetNewCustomers.com</span>
+      </a>
+      <div class="top-right">
+        <span class="region-tag">Harrisburg &amp; Central PA Plumbing</span>
+        <a class="top-cta" href="#request">Get the map</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div>
+          <p class="eyebrow">For plumbing contractors · Harrisburg area</p>
+          <h1>After a plumbing estimate goes quiet, who's calling them back?</h1>
+          <p class="hero-lead">
+            One page, kept by the dispatch desk or phone, so every open plumbing estimate has a named owner, a due date, and one clear line on what happened. Free from GetNewCustomers.
+          </p>
+          <div class="hero-actions">
+            <a class="btn-copper" href="#request">Send me the free map <span aria-hidden="true">↓</span></a>
+            <span class="hero-meta">1 page · Manual send from Jason · Zero spam</span>
+          </div>
+        </div>
+
+        <aside class="specimen" aria-label="Fictional example of the one-page Plumbing Estimate Follow-Up Map">
+          <div class="specimen-head">
+            <div>
+              <span class="specimen-kicker">One-Page Desk Sheet</span>
+              <div class="specimen-title">Plumbing Estimate<br />Follow-Up Map</div>
+            </div>
+            <span class="specimen-stamp">SAMPLE / 01</span>
+          </div>
+          <p class="specimen-note">One row per open estimate. Example row below is fictional.</p>
+          <div class="spec-table">
+            <div class="spec-row">
+              <span>Estimate / job</span>
+              <span>50-gal gas water heater swap</span>
+            </div>
+            <div class="spec-row">
+              <span>Owner</span>
+              <span>Office desk (Jenna)</span>
+            </div>
+            <div class="spec-row">
+              <span>Next action</span>
+              <span>Call to answer install-day questions</span>
+            </div>
+            <div class="spec-row">
+              <span>Due date</span>
+              <span>Thursday, 10:00 AM</span>
+            </div>
+            <div class="spec-row">
+              <span>Outcome</span>
+              <span>Open — homeowner comparing timing</span>
+            </div>
+            <div class="spec-row blank-row">
+              <span>Row 02</span>
+              <span>Blank row ready for your next open quote</span>
+            </div>
+          </div>
+          <div class="specimen-foot">
+            <span>Fictional example</span>
+            <span>GNC / Plumbing</span>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <div class="spec-strip">
+      <div class="wrap spec-strip-inner">
+        <div class="spec-item"><span class="spec-num">01 /</span> Open estimate</div>
+        <div class="spec-item"><span class="spec-num">02 /</span> Named owner</div>
+        <div class="spec-item"><span class="spec-num">03 /</span> Callback due date</div>
+        <div class="spec-item"><span class="spec-num">04 /</span> Logged outcome</div>
+      </div>
+    </div>
+
+    <div class="wrap content-band">
+      <section class="editorial-row">
+        <div>
+          <span class="row-kicker">01 / The leak</span>
+          <h2>The problem</h2>
+        </div>
+        <div class="row-body">
+          <p>The tech prices the water heater, main sewer line, sump pump, or repipe and hands the homeowner a number.</p>
+          <p>The homeowner says, <strong>"We'll talk it over and let you know."</strong> Then the phone goes quiet.</p>
+          <p>Nobody owns the callback. There's no name on the follow-up and no due date on the desk — so the estimate sits in a folder, and the job goes to the shop that checked back in.</p>
+        </div>
+      </section>
+
+      <section class="editorial-row">
+        <div>
+          <span class="row-kicker">02 / The sheet</span>
+          <h2>What the map is</h2>
+        </div>
+        <div class="row-body">
+          <p>It is one clean page built to live right beside the phone or dispatch screen. One row per open estimate, started the moment a price goes out.</p>
+          <ul class="callout-list">
+            <li>Which plumbing estimate is open</li>
+            <li>Who owns the next follow-up call</li>
+            <li>When that callback is due</li>
+            <li>What happened when your office reached out</li>
+          </ul>
+          <p>It includes a clearly marked fictional sample row and blank rows ready for your shop. Simple enough to hand to whoever answers the phone today: <strong>no name on the row, no callback happens.</strong></p>
+        </div>
+      </section>
+
+      <section class="editorial-row">
+        <div>
+          <span class="row-kicker">03 / Daily habit</span>
+          <h2>How it works</h2>
+        </div>
+        <div class="row-body">
+          <ol class="steps-list">
+            <li><span><strong>An estimate goes out</strong> — start a row before the tech rolls to the next call.</span></li>
+            <li><span><strong>Assign one owner and a due date</strong> — whoever is named on the row owns the check-in.</span></li>
+            <li><span><strong>Call on or before the due date</strong> — write one line under "Outcome" so nothing falls through the cracks.</span></li>
+          </ol>
+        </div>
+      </section>
+
+      <section class="editorial-row">
+        <div>
+          <span class="row-kicker">04 / Built for shops</span>
+          <h2>Who it's for</h2>
+        </div>
+        <div class="row-body">
+          <p>Residential plumbing contractors across Harrisburg, Mechanicsburg, Carlisle, Hershey, Palmyra, Dillsburg, and Central Pennsylvania. Whether you run two trucks or ten, if estimates leave the building and callbacks slip when the board gets busy, this sheet is for your office.</p>
+        </div>
+      </section>
+
+      <section class="editorial-row">
+        <div>
+          <span class="row-kicker">05 / Straight talk</span>
+          <h2>What happens after you request it</h2>
+        </div>
+        <div class="row-body">
+          <p><strong>Jason sends the map himself.</strong> No automated email drip. No high-pressure sales ambush. No obligation.</p>
+          <p>GetNewCustomers.com is contractor-run out of Hummelstown, PA — Jason brings 27 years in the trades (landscaping, painting, and property maintenance). If the one-page sheet helps your desk, keep it. If not, no hard feelings.</p>
+        </div>
+      </section>
+
+      <section class="editorial-row">
+        <div>
+          <span class="row-kicker">06 / Questions</span>
+          <h2>FAQ</h2>
+        </div>
+        <div class="row-body">
+          <div class="faq-list">
+            <details>
+              <summary>Is it free?</summary>
+              <p>Yes. The one-page Plumbing Estimate Follow-Up Map is free. Nothing to buy.</p>
+            </details>
+            <details>
+              <summary>Do I have to hire you?</summary>
+              <p>No. Keep the map and use it in your office whether or not we ever talk again.</p>
+            </details>
+            <details>
+              <summary>What if we already use dispatch software or a whiteboard?</summary>
+              <p>Good. Use this as a plain one-page backup the person answering the phone can scan in ten seconds. It sits cleanly beside whatever software you already run.</p>
+            </details>
+            <details>
+              <summary>What's the catch?</summary>
+              <p>There isn't one. It's a practical one-page follow-up sheet, and Jason sends it over himself.</p>
+            </details>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <div class="wrap request-wrap">
+      <section id="request" tabindex="-1" class="request-band">
+        <div class="request-head">
+          <div>
+            <span class="eyebrow" style="margin-bottom: 0.7rem;">Request the 1-page sheet</span>
+            <h2>Where should we send it?</h2>
+          </div>
+          <p class="request-sub">
+            Drop your details below. Jason will send the Plumbing Estimate Follow-Up Map directly to your inbox — no list, no spam.
+          </p>
+        </div>
+
+        <form id="lead-form" method="post" action="api/lead.php" novalidate>
+          <label class="hp-field" aria-hidden="true">
+            Website
+            <input name="website" tabindex="-1" autocomplete="off" />
+          </label>
+
+          <div class="fields">
+            <div class="field">
+              <label for="name">Your name</label>
+              <input id="name" name="name" type="text" autocomplete="name" required aria-describedby="name-error" placeholder="e.g. Mike Leonard" />
+              <small class="field-error" id="name-error"></small>
+            </div>
+
+            <div class="field">
+              <label for="organization">Plumbing company</label>
+              <input id="organization" name="company" type="text" autocomplete="organization" required aria-describedby="organization-error" placeholder="e.g. Central Penn Plumbing" />
+              <small class="field-error" id="organization-error"></small>
+            </div>
+
+            <div class="field">
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" autocomplete="email" required aria-describedby="email-error" placeholder="you@yourshop.com" />
+              <small class="field-error" id="email-error"></small>
+            </div>
+
+            <div class="field">
+              <label for="tel">Phone</label>
+              <input id="tel" name="phone" type="tel" autocomplete="tel" required aria-describedby="tel-error" placeholder="717-555-0148" />
+              <small class="field-error" id="tel-error"></small>
+            </div>
+          </div>
+
+          <p class="send-error" role="alert" id="send-error"></p>
+
+          <div class="form-footer">
+            <button class="btn-copper" type="submit" id="submit-btn">Send me the plumbing map</button>
+            <span class="form-note">Used only to send your map. No spam, no shared list.</span>
+          </div>
+        </form>
+
+        <div class="confirmation-box" id="confirmation" hidden tabindex="-1">
+          <strong>Request received — check your inbox.</strong>
+          <p>Jason will send the one-page Plumbing Estimate Follow-Up Map over directly.</p>
+          <span class="receipt-code" id="receipt-display"></span>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <strong>GetNewCustomers.com</strong>
+      <span class="footer-meta">Hummelstown, PA · Built for Central PA Plumbing Shops</span>
+    </div>
+  </footer>
+
+  <script>
+    const form = document.getElementById('lead-form');
+    const inputs = Array.from(form.querySelectorAll('.fields input'));
+    const button = document.getElementById('submit-btn');
+    const errorBox = document.getElementById('send-error');
+
+    function validate(input) {
+      const value = input.value.trim();
+      let message = '';
+      if (!value) {
+        message = 'Please fill in this field.';
+      } else if (input.validity.typeMismatch) {
+        message = 'Enter a valid email address.';
+      } else if (
+        input.type === 'tel' &&
+        (!/^[+\d().\s-]+$/.test(value) || !/^\d{7,15}$/.test(value.replace(/\D/g, '')))
+      ) {
+        message = 'Enter a valid phone number.';
+      }
+      document.getElementById(input.id + '-error').textContent = message;
+      input.setAttribute('aria-invalid', String(Boolean(message)));
+      return !message;
+    }
+
+    form.addEventListener('input', (event) => {
+      if (event.target.getAttribute('aria-invalid') === 'true') {
+        validate(event.target);
+      }
+    });
+
+    let submissionKey = Array.from(crypto.getRandomValues(new Uint8Array(16)), (b) =>
+      b.toString(16).padStart(2, '0')
+    ).join('');
+
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      if (button.disabled || !submissionKey) return;
+
+      const invalid = inputs.filter((input) => !validate(input));
+      if (invalid.length) {
+        invalid[0].focus();
+        return;
+      }
+
+      button.disabled = true;
+      button.textContent = 'Sending...';
+      errorBox.textContent = '';
+
+      try {
+        const response = await fetch(form.action, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            name: form.querySelector('#name').value.trim(),
+            company: form.querySelector('#organization').value.trim(),
+            email: form.querySelector('#email').value.trim(),
+            phone: form.querySelector('#tel').value.trim(),
+            source_url: location.origin + location.pathname,
+            submission_key: submissionKey,
+            website: form.elements.website.value,
+          }),
+        });
+        const data = await response.json();
+        if (!response.ok || data.ok !== true) {
+          throw new Error('Delivery not confirmed');
+        }
+
+        submissionKey = null;
+        form.reset();
+        form.hidden = true;
+        const receiptEl = document.getElementById('receipt-display');
+        receiptEl.textContent = data.receiptId ? 'Receipt ID: ' + data.receiptId : 'Confirmed';
+        const confirmation = document.getElementById('confirmation');
+        confirmation.hidden = false;
+        confirmation.focus();
+      } catch {
+        errorBox.textContent = 'Your request could not be confirmed. Your details are still here — please try again.';
+        button.disabled = false;
+        button.textContent = 'Send me the plumbing map';
+      }
+    });
+  </script>
+</body>
+</html>
