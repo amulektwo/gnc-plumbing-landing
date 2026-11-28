@@ -950,7 +950,7 @@
           <h2>What happens after you request it</h2>
         </div>
         <div class="row-body">
-          <p><strong>Jason sends the map himself.</strong> No automated email drip. No high-pressure sales ambush. No obligation.</p>
+          <p><strong>Jason sends the map himself.</strong> You’ll receive a confirmation and may receive a follow-up about your request. No high-pressure sales ambush. No obligation.</p>
           <p>GetNewCustomers.com is contractor-run out of Hummelstown, PA — Jason brings 27 years in the trades (landscaping, painting, and property maintenance). If the one-page sheet helps your desk, keep it. If not, no hard feelings.</p>
         </div>
       </section>
@@ -995,51 +995,25 @@
           </p>
         </div>
 
-        <form id="lead-form" method="post" action="api/lead.php" novalidate>
-          <label class="hp-field" aria-hidden="true">
-            Website
-            <input name="website" tabindex="-1" autocomplete="off" />
-          </label>
-
-          <div class="fields">
-            <div class="field">
-              <label for="name">Your name</label>
-              <input id="name" name="name" type="text" autocomplete="name" required aria-describedby="name-error" placeholder="e.g. Dave Miller" />
-              <small class="field-error" id="name-error"></small>
-            </div>
-
-            <div class="field">
-              <label for="organization">Plumbing company</label>
-              <input id="organization" name="company" type="text" autocomplete="organization" required aria-describedby="organization-error" placeholder="e.g. Keystone Plumbing &amp; Drain" />
-              <small class="field-error" id="organization-error"></small>
-            </div>
-
-            <div class="field">
-              <label for="email">Email</label>
-              <input id="email" name="email" type="email" autocomplete="email" required aria-describedby="email-error" placeholder="you@yourshop.com" />
-              <small class="field-error" id="email-error"></small>
-            </div>
-
-            <div class="field">
-              <label for="tel">Phone</label>
-              <input id="tel" name="phone" type="tel" autocomplete="tel" required aria-describedby="tel-error" placeholder="717-555-0148" />
-              <small class="field-error" id="tel-error"></small>
-            </div>
-          </div>
-
-          <p class="send-error" role="alert" id="send-error"></p>
-
-          <div class="form-footer">
-            <button class="btn-copper" type="submit" id="submit-btn">Send me the plumbing map</button>
-            <span class="form-note">Used only to send your map. No spam, no shared list.</span>
-          </div>
-        </form>
-
-        <div class="confirmation-box" id="confirmation" hidden tabindex="-1">
-          <strong>Request received — check your inbox.</strong>
-          <p>Jason will send the one-page Plumbing Estimate Follow-Up Map over directly.</p>
-          <span class="receipt-code" id="receipt-display"></span>
-        </div>
+        <iframe
+  src="https://api.leadconnectorhq.com/widget/form/7RxeoV2laPL1YFJjZPaf"
+  style="width:100%;height:544px;border:none;border-radius:3px"
+  id="inline-7RxeoV2laPL1YFJjZPaf"
+  data-layout="{'id':'INLINE'}"
+  data-trigger-type="alwaysShow"
+  data-trigger-value=""
+  data-activation-type="alwaysActivated"
+  data-activation-value=""
+  data-deactivation-type="neverDeactivate"
+  data-deactivation-value=""
+  data-form-name="GNC Plumbing — Estimate Follow-Up Map"
+  data-height="544"
+  data-layout-iframe-id="inline-7RxeoV2laPL1YFJjZPaf"
+  data-form-id="7RxeoV2laPL1YFJjZPaf"
+  title="GNC Plumbing — Estimate Follow-Up Map"
+></iframe>
+<script src="https://link.msgsndr.com/js/form_embed.js"></script>
+        <p class="form-note"><a href="https://link.marketingenginesai.com/widget/form/7RxeoV2laPL1YFJjZPaf">Open the request form</a></p>
       </section>
     </div>
   </main>
@@ -1051,87 +1025,6 @@
     </div>
   </footer>
 
-  <script>
-    const form = document.getElementById('lead-form');
-    const inputs = Array.from(form.querySelectorAll('.fields input'));
-    const button = document.getElementById('submit-btn');
-    const errorBox = document.getElementById('send-error');
 
-    function validate(input) {
-      const value = input.value.trim();
-      let message = '';
-      if (!value) {
-        message = 'Please fill in this field.';
-      } else if (input.validity.typeMismatch) {
-        message = 'Enter a valid email address.';
-      } else if (
-        input.type === 'tel' &&
-        (!/^[+\d().\s-]+$/.test(value) || !/^\d{7,15}$/.test(value.replace(/\D/g, '')))
-      ) {
-        message = 'Enter a valid phone number.';
-      }
-      document.getElementById(input.id + '-error').textContent = message;
-      input.setAttribute('aria-invalid', String(Boolean(message)));
-      return !message;
-    }
-
-    form.addEventListener('input', (event) => {
-      if (event.target.getAttribute('aria-invalid') === 'true') {
-        validate(event.target);
-      }
-    });
-
-    let submissionKey = Array.from(crypto.getRandomValues(new Uint8Array(16)), (b) =>
-      b.toString(16).padStart(2, '0')
-    ).join('');
-
-    form.addEventListener('submit', async (event) => {
-      event.preventDefault();
-      if (button.disabled || !submissionKey) return;
-
-      const invalid = inputs.filter((input) => !validate(input));
-      if (invalid.length) {
-        invalid[0].focus();
-        return;
-      }
-
-      button.disabled = true;
-      button.textContent = 'Sending...';
-      errorBox.textContent = '';
-
-      try {
-        const response = await fetch(form.action, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            name: form.querySelector('#name').value.trim(),
-            company: form.querySelector('#organization').value.trim(),
-            email: form.querySelector('#email').value.trim(),
-            phone: form.querySelector('#tel').value.trim(),
-            source_url: location.origin + location.pathname,
-            submission_key: submissionKey,
-            website: form.elements.website.value,
-          }),
-        });
-        const data = await response.json();
-        if (!response.ok || data.ok !== true) {
-          throw new Error('Delivery not confirmed');
-        }
-
-        submissionKey = null;
-        form.reset();
-        form.hidden = true;
-        const receiptEl = document.getElementById('receipt-display');
-        receiptEl.textContent = data.receiptId ? 'Receipt ID: ' + data.receiptId : 'Confirmed';
-        const confirmation = document.getElementById('confirmation');
-        confirmation.hidden = false;
-        confirmation.focus();
-      } catch {
-        errorBox.textContent = 'Your request could not be confirmed. Your details are still here — please try again.';
-        button.disabled = false;
-        button.textContent = 'Send me the plumbing map';
-      }
-    });
-  </script>
 </body>
 </html>
